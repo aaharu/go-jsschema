@@ -519,6 +519,10 @@ func (s *Schema) Extract(m map[string]interface{}) error {
 		return errors.Wrap(err, "failed to extract 'type'")
 	}
 
+	if err = extractBool(&s.Nullable, m, "nullable", false); err != nil {
+		return errors.Wrap(err, "failed to extract 'nullable'")
+	}
+
 	if s.Definitions, err = extractSchemaMap(m, "definitions"); err != nil {
 		return errors.Wrap(err, "failed to extract 'definitions'")
 	}

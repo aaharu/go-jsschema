@@ -20,6 +20,7 @@ const (
 // ErrExpectedArrayOfString is returned when we encounter
 // something other than array of strings
 var ErrExpectedArrayOfString = errors.New("invalid value: expected array of string")
+
 // ErrInvalidStringArray is the same as ErrExpectedArrayOfString.
 // This is here only for backwards compatibility
 var ErrInvalidStringArray = ErrExpectedArrayOfString
@@ -96,6 +97,7 @@ type Schema struct {
 	Definitions     map[string]*Schema `json:"definitions,omitempty"`
 	Reference       string             `json:"$ref,omitempty"`
 	Format          Format             `json:"format,omitempty"`
+	Nullable        Bool               `json:"nullable,omitempty"`
 
 	// NumericValidations
 	MultipleOf       Number `json:"multipleOf,omitempty"`
